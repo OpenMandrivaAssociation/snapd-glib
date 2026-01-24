@@ -1,3 +1,4 @@
+%define api 1
 %define devname %mklibname -d snapd-glib
 
 Name:		snapd-glib
@@ -49,6 +50,14 @@ that use %{name} to communicate with snapd.
 
 
 %files
+%{_libdir}/libsnapd-glib-2.so.%{api}*
+%{_libdir}/girepository-1.0/Snapd-2.typelib
+
+%files -n snapd-qt
+%{_libdir}/libsnapd-qt-%{api}.so.*
+
+%files -n snapd-qt-qml
+%{_qt6_qmldir}/Snapd%{api}/
 
 %files -n %{devname}
 %doc %{_datadir}/doc/snapd-glib/
@@ -59,4 +68,11 @@ that use %{name} to communicate with snapd.
 %{_libdir}/libsnapd-qt-2.so
 %{_libdir}/pkgconfig/snapd-glib-2.pc
 %{_libdir}/pkgconfig/snapd-qt-2.pc
+%{_datadr}/gir-1.0/Snapd-2.gir
+%{_datadr}/vala/vapi/snapd-glib-2.deps
+%{_datadr}/vala/vapi/snapd-glib-2.vapi
+
+%files tests
+%{_libexecdir}/installed-tests/snapd-glib-2/
+%{_datadr}/installed-tests/snapd-glib-2/
 
