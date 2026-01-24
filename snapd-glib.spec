@@ -1,3 +1,5 @@
+%define devname %mklibname -d snapd-glib
+
 Name:		snapd-glib
 Version:	1.70
 Release:	1
@@ -6,20 +8,23 @@ License:	LGPL-3.0
 URL:		https://github.com/snapcore/snapd-glib
 Source0:	https://github.com/snapcore/snapd-glib/archive/%{version}/%{name}-%{version}.tar.gz
 
-BuildSystem:  meson
-BuildRequires:  meson
-BuildRequires:  gettext
-BuildRequires:  gi-docgen
-BuildRequires:  pkgconfig(gobject-introspection-1.0)
-BuildRequires:  pkgconfig(gio-2.0)
-BuildRequires:  pkgconfig(gio-unix-2.0)
-BuildRequires:  pkgconfig(glib-2.0)
-BuildRequires:  pkgconfig(json-glib-1.0)
-BuildRequires:  pkgconfig(libsoup-3.0)
-BuildRequires:  pkgconfig(Qt6Core)
-BuildRequires:  pkgconfig(Qt6Network)
-BuildRequires:  pkgconfig(Qt6Qml)
-BuildRequires:  pkgconfig(vapigen)
+BuildSystem: meson
+BuildRequires: meson
+BuildRequires: gettext
+BuildRequires: gi-docgen
+BuildRequires: pkgconfig(gobject-introspection-1.0)
+BuildRequires: pkgconfig(gio-2.0)
+BuildRequires: pkgconfig(gio-unix-2.0)
+BuildRequires: pkgconfig(glib-2.0)
+BuildRequires: pkgconfig(json-glib-1.0)
+BuildRequires: pkgconfig(libsoup-3.0)
+BuildRequires: pkgconfig(Qt6Core)
+BuildRequires: pkgconfig(Qt6Network)
+BuildRequires: pkgconfig(Qt6Qml)
+BuildRequires: pkgconfig(Qt6QmlCore)
+BuildRequires: pkgconfig(Qt6Widgets)
+BuildRequires: pkgconfig(Qt6Linguist)
+BuildRequires: pkgconfig(vapigen)
 
 
 %description
@@ -33,5 +38,25 @@ A snapd-qt library is provided that wraps snapd-glib for Qt based applications. 
 - Qt
 - QML
 
+%package -n %{devname}
+Summary:        Development files for %{name}
+Requires:	%{name} = %{EVRD}
+
+%description -n %{devname}
+This package provides the files for developing applications
+that use %{name} to communicate with snapd.
+
+
 
 %files
+
+%files -n %{devname}
+%doc %{_datadir}/doc/snapd-glib/
+%{_includedir}/snapd-glib-2/
+%{_includedir}/snapd-qt-2/
+%{_libdir}/cmake/Snapd2/
+%{_libdir}/libsnapd-glib-2.so
+%{_libdir}/libsnapd-qt-2.so
+%{_libdir}/pkgconfig/snapd-glib-2.pc
+%{_libdir}/pkgconfig/snapd-qt-2.pc
+
