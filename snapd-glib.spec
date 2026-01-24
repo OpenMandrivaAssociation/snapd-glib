@@ -4,7 +4,7 @@ Release:	1
 Summary:	snapd-glib is a library to allow GLib based applications access to snapd, the daemon that controls Snaps.
 License:	LGPL-3.0
 URL:		https://github.com/snapcore/snapd-glib
-Source0:	https://github.com/snapcore/snapd-glib/archive/%{version}/%{name}-%{version}.tar.xz
+Source0:	https://github.com/snapcore/snapd-glib/archive/%{version}/%{name}-%{version}.tar.gz
 
 BuildSystem:  meson
 BuildRequires:  meson
