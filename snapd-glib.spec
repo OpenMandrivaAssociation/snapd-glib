@@ -95,6 +95,6 @@ This package provides the files for running the test programs for snapd-qt to ve
 %{_datadr}/vala/vapi/snapd-glib-2.deps
 %{_datadr}/vala/vapi/snapd-glib-2.vapi
 
-%files tests
+%files -n tests
 %{_libexecdir}/installed-tests/snapd-glib-2/
 %{_datadr}/installed-tests/snapd-glib-2/
