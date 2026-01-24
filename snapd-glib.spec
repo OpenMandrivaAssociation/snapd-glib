@@ -9,6 +9,7 @@ Source0:	https://github.com/snapcore/snapd-glib/archive/%{version}/%{name}-%{ver
 BuildSystem:  meson
 BuildRequires:  meson
 BuildRequires:  gettext
+BuildRequires:  gi-docgen
 BuildRequires:  pkgconfig(gobject-introspection-1.0)
 BuildRequires:  pkgconfig(gio-2.0)
 BuildRequires:  pkgconfig(gio-unix-2.0)
