@@ -69,7 +69,7 @@ Requires:	%{libqt} = %{EVRD}
 Requires:	%{libqtqml} = %{EVRD}
 Requires:	%{name} = %{EVRD}
 
-%description -n snapd-qt-tests
+%description -n tests
 This package provides the files for running the test programs for snapd-qt to verify the functionality of snapd-qt.
 
 %files
