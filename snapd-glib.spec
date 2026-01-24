@@ -77,7 +77,7 @@ This package provides the files for running the test programs for snapd-qt to ve
 %{_libdir}/girepository-1.0/Snapd-2.typelib
 
 %files -n %{libqt}
-%{_libdir}/libsnapd-qt-%{api}.so.*
+%{_libdir}/libsnapd-qt-2.so.%{api}*
 
 %files -n %{libqtqml}
 %{_libdir}/qt6/qml/Snapd2/
