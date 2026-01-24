@@ -63,13 +63,13 @@ Requires:	%{name} = %{EVRD}
 This package provides the files for developing applications
 that use %{name} to communicate with snapd.
 
-%package -n tests
+%package -n snapd-glib-tests
 Summary:        Installed tests for %{name}
 Requires:	%{libqt} = %{EVRD}
 Requires:	%{libqtqml} = %{EVRD}
 Requires:	%{name} = %{EVRD}
 
-%description -n tests
+%description -n snapd-glib-tests
 This package provides the files for running the test programs for snapd-qt to verify the functionality of snapd-qt.
 
 %files
@@ -95,6 +95,6 @@ This package provides the files for running the test programs for snapd-qt to ve
 %{_datadir}/vala/vapi/snapd-glib-2.deps
 %{_datadir}/vala/vapi/snapd-glib-2.vapi
 
-%files -n tests
+%files -n snapd-glib-tests
 %{_libexecdir}/installed-tests/snapd-glib-2/
 %{_datadir}/installed-tests/snapd-glib-2/
