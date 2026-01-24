@@ -1,5 +1,7 @@
 %define api 1
 %define devname %mklibname -d snapd-glib
+%define libqt %mklibname snapd-qt
+%define libqtqml %mklibname snapd-qt-qml
 
 Name:		snapd-glib
 Version:	1.70
@@ -39,6 +41,20 @@ A snapd-qt library is provided that wraps snapd-glib for Qt based applications. 
 - Qt
 - QML
 
+%package -n %{libqt}
+Summary:	Library providing a Qt6 interface to snapd
+Requires:	%{name} = %{EVRD}
+
+%description -n %{libqt}
+snapd-qt is a library that provides an interface to communicate with snapd for Qt based applications.
+
+%package -n %{libqtqml}
+Summary:	Library providing a Qt6 QML interface to snapd
+Requires:	%{libqt} = %{EVRD}
+
+%description -n %{libqtqml}
+snapd-qt-qml is a library that provides an interface to communicate with snapd for Qt QML based applications.
+
 %package -n %{devname}
 Summary:        Development files for %{name}
 Requires:	%{name} = %{EVRD}
@@ -47,17 +63,24 @@ Requires:	%{name} = %{EVRD}
 This package provides the files for developing applications
 that use %{name} to communicate with snapd.
 
+%package -n tests
+Summary:        Installed tests for %{name}
+Requires:	%{libqt} = %{EVRD}
+Requires:	%{libqtqml} = %{EVRD}
+Requires:	%{name} = %{EVRD}
 
+%description -n snapd-qt-tests
+This package provides the files for running the test programs for snapd-qt to verify the functionality of snapd-qt.
 
 %files
 %{_libdir}/libsnapd-glib-2.so.%{api}*
 %{_libdir}/girepository-1.0/Snapd-2.typelib
 
-%files -n snapd-qt
+%files -n %{libqt}
 %{_libdir}/libsnapd-qt-%{api}.so.*
 
-%files -n snapd-qt-qml
-%{_qt6_qmldir}/Snapd%{api}/
+%files -n %{libqtqml}
+%{_libdir}/qt6/qml/Snapd2/
 
 %files -n %{devname}
 %doc %{_datadir}/doc/snapd-glib/
@@ -75,4 +98,3 @@ that use %{name} to communicate with snapd.
 %files tests
 %{_libexecdir}/installed-tests/snapd-glib-2/
 %{_datadr}/installed-tests/snapd-glib-2/
-
