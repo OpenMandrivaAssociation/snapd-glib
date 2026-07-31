@@ -4,7 +4,7 @@
 %define libqtqml %mklibname snapd-qt-qml
 
 Name:		snapd-glib
-Version:	1.70
+Version:	1.72
 Release:	1
 Summary:	snapd-glib is a library to allow GLib based applications access to snapd, the daemon that controls Snaps.
 License:	LGPL-3.0
